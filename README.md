@@ -2,7 +2,7 @@
 Uses stereo cameras to perceive relative cone locations.
 
 # architecture
-![alt text](https://github.com/Joe-Withers/TBRe-AI-Perception/architecture.PNG)
+![alt text](https://github.com/Joe-Withers/TBRe-AI-Perception/blob/master/architecture.PNG)
 
 # dependencies
 * Python 3
