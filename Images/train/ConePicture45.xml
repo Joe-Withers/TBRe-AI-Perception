@@ -1,0 +1,50 @@
+<annotation>
+	<folder>Cone Pictures</folder>
+	<filename>ConePicture45.jpg</filename>
+	<path>C:\Users\tommy\OneDrive\Documents\Team Bath Racing\tbre-ai-perception\Datasets\Tom\Images\Cone Pictures\ConePicture45.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>220</width>
+		<height>213</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>109</xmin>
+			<ymin>72</ymin>
+			<xmax>183</xmax>
+			<ymax>179</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>74</xmin>
+			<ymin>38</ymin>
+			<xmax>135</xmax>
+			<ymax>169</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>18</xmin>
+			<ymin>23</ymin>
+			<xmax>85</xmax>
+			<ymax>167</ymax>
+		</bndbox>
+	</object>
+</annotation>
