@@ -1,0 +1,26 @@
+<annotation>
+  <folder>cone_dataset</folder>
+  <filename>110</filename>
+  <path>/home/melissafm/Workspace/cone_dataset/110.jpg</path>
+  <source>
+    <database>Unknown</database>
+  </source>
+  <size>
+    <width>413</width>
+    <height>416</height>
+    <depth>3</depth>
+  </size>
+  <segmented>0</segmented>
+  <object>
+    <name>trafficcone</name>
+    <pose>Unspecified</pose>
+    <truncated>0</truncated>
+    <difficult>0</difficult>
+    <bndbox>
+      <xmin>108</xmin>
+      <ymin>62</ymin>
+      <xmax>271</xmax>
+      <ymax>322</ymax>
+    </bndbox>
+  </object>
+</annotation>

@@ -1,0 +1,26 @@
+<annotation>
+	<folder>blue</folder>
+	<filename>51war904jLL._SY355_.jpg</filename>
+	<path>C:\Users\Joe\Desktop\downlaoded_cone_images\blue\51war904jLL._SY355_.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>355</width>
+		<height>355</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>56</xmin>
+			<ymin>15</ymin>
+			<xmax>307</xmax>
+			<ymax>345</ymax>
+		</bndbox>
+	</object>
+</annotation>

@@ -1,0 +1,26 @@
+<annotation>
+	<folder>racing-track</folder>
+	<filename>depositphotos_87827928-stock-video-traffic-cones-in-the-race.jpg</filename>
+	<path>C:\Users\Joe\Desktop\downlaoded_cone_images\racing-track\depositphotos_87827928-stock-video-traffic-cones-in-the-race.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>608</width>
+		<height>342</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>1</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>386</xmin>
+			<ymin>173</ymin>
+			<xmax>505</xmax>
+			<ymax>342</ymax>
+		</bndbox>
+	</object>
+</annotation>

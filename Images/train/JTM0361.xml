@@ -1,0 +1,26 @@
+<annotation>
+	<folder>blue</folder>
+	<filename>JTM0361.jpg</filename>
+	<path>C:\Users\Joe\Desktop\downlaoded_cone_images\blue\JTM0361.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>768</width>
+		<height>1024</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>177</xmin>
+			<ymin>20</ymin>
+			<xmax>650</xmax>
+			<ymax>986</ymax>
+		</bndbox>
+	</object>
+</annotation>

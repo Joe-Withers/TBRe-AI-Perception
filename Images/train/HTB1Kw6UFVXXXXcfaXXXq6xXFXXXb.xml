@@ -1,0 +1,26 @@
+<annotation>
+	<folder>blue</folder>
+	<filename>HTB1Kw6UFVXXXXcfaXXXq6xXFXXXb.jpg</filename>
+	<path>C:\Users\Joe\Desktop\downlaoded_cone_images\blue\HTB1Kw6UFVXXXXcfaXXXq6xXFXXXb.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>853</width>
+		<height>640</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>306</xmin>
+			<ymin>55</ymin>
+			<xmax>648</xmax>
+			<ymax>634</ymax>
+		</bndbox>
+	</object>
+</annotation>

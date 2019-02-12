@@ -1,0 +1,26 @@
+<annotation>
+	<folder>formula-student</folder>
+	<filename>sWgi6E6P.jpg</filename>
+	<path>C:\Users\Joe\Desktop\downlaoded_cone_images\formula-student\sWgi6E6P.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>2048</width>
+		<height>1151</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1126</xmin>
+			<ymin>871</ymin>
+			<xmax>1276</xmax>
+			<ymax>1029</ymax>
+		</bndbox>
+	</object>
+</annotation>
