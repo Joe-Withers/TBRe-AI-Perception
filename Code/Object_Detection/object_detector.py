@@ -1,6 +1,7 @@
 import tensorflow as tf
 from distutils.version import StrictVersion
 import os
+import glob
 import numpy as np
 import time
 #from object detection module
@@ -125,9 +126,6 @@ class Object_Detector():
                     instance_masks=output_dict.get('detection_masks'),
                     use_normalized_coordinates=True,
                     line_thickness=8)
-                # plt.figure(figsize=IMAGE_SIZE)
-                # plt.imshow(image[i,:,:,:])
-                # plt.show()
                 cv2.imshow('image '+str(i),cv2.cvtColor(image[i,:,:,:], cv2.COLOR_BGR2RGB))
                 cv2.waitKey(0)
                 cv2.destroyAllWindows()
@@ -135,14 +133,13 @@ class Object_Detector():
         return list_of_output_dict
 
 if __name__ == "__main__":
-    model_name = 'D:/Program Files/models-master/research/object_detection/cones_graph4'
+    model_name = './cones_graph'
     frozen_graph_name = '/frozen_inference_graph.pb'
-    labels = os.path.join('D:/Program Files/models-master/research/object_detection/data', 'object-detection.pbtxt')
+    labels = os.path.join('./data', 'object-detection.pbtxt')
     cone_detector = Object_Detector(model_name, frozen_graph_name, labels, debug_mode = True)
 
-    # If you want to test the code with your images, just add path to the images to the TEST_IMAGE_PATHS.
-    PATH_TO_TEST_IMAGES_DIR = 'D:/Program Files/models-master/research/object_detection/test_images'
-    TEST_IMAGE_PATHS = [ os.path.join(PATH_TO_TEST_IMAGES_DIR, 'image{}.jpg'.format(i)) for i in range(1, 21) ]
+    PATH_TO_TEST_IMAGES_DIR = '../../images/test'
+    TEST_IMAGE_PATHS = glob.glob(PATH_TO_TEST_IMAGES_DIR+'/*.jpg')
 
     for image_path in TEST_IMAGE_PATHS:
         image = Image.open(image_path)
