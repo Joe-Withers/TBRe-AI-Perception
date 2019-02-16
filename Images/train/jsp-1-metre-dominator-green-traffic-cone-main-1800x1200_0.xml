@@ -1,0 +1,26 @@
+<annotation>
+	<folder>cones</folder>
+	<filename>jsp-1-metre-dominator-green-traffic-cone-main-1800x1200_0.jpg</filename>
+	<path>/Users/pearse/Pictures/cones/jsp-1-metre-dominator-green-traffic-cone-main-1800x1200_0.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1800</width>
+		<height>1200</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>576</xmin>
+			<ymin>38</ymin>
+			<xmax>1214</xmax>
+			<ymax>1152</ymax>
+		</bndbox>
+	</object>
+</annotation>

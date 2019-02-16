@@ -1,0 +1,26 @@
+<annotation>
+	<folder>cones</folder>
+	<filename>DH-BTC-10043.jpg</filename>
+	<path>/Users/pearse/Pictures/cones/DH-BTC-10043.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>5184</width>
+		<height>3456</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>1521</xmin>
+			<ymin>113</ymin>
+			<xmax>3142</xmax>
+			<ymax>3392</ymax>
+		</bndbox>
+	</object>
+</annotation>

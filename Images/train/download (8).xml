@@ -1,0 +1,38 @@
+<annotation>
+	<folder>cones</folder>
+	<filename>download (8).jpeg</filename>
+	<path>/Users/pearse/Pictures/cones/download (8).jpeg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>800</width>
+		<height>800</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>98</xmin>
+			<ymin>40</ymin>
+			<xmax>451</xmax>
+			<ymax>646</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>356</xmin>
+			<ymin>276</ymin>
+			<xmax>634</xmax>
+			<ymax>731</ymax>
+		</bndbox>
+	</object>
+</annotation>

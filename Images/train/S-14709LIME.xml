@@ -1,0 +1,26 @@
+<annotation>
+	<folder>cones</folder>
+	<filename>S-14709LIME.jpg</filename>
+	<path>/Users/pearse/Pictures/cones/S-14709LIME.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>528</width>
+		<height>704</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>71</xmin>
+			<ymin>13</ymin>
+			<xmax>459</xmax>
+			<ymax>697</ymax>
+		</bndbox>
+	</object>
+</annotation>

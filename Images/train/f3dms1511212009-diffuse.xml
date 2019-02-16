@@ -1,0 +1,26 @@
+<annotation>
+	<folder>cones</folder>
+	<filename>f3dms1511212009-diffuse.jpg</filename>
+	<path>/Users/pearse/Pictures/cones/f3dms1511212009-diffuse.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>720</width>
+		<height>720</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>243</xmin>
+			<ymin>203</ymin>
+			<xmax>483</xmax>
+			<ymax>547</ymax>
+		</bndbox>
+	</object>
+</annotation>

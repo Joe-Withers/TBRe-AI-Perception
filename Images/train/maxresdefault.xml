@@ -1,7 +1,7 @@
 <annotation>
-	<folder>formula-student</folder>
+	<folder>cones</folder>
 	<filename>maxresdefault.jpg</filename>
-	<path>C:\Users\Joe\Desktop\downlaoded_cone_images\formula-student\maxresdefault.jpg</path>
+	<path>/Users/pearse/Pictures/cones/maxresdefault.jpg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
@@ -14,121 +14,25 @@
 	<object>
 		<name>cone</name>
 		<pose>Unspecified</pose>
-		<truncated>0</truncated>
+		<truncated>1</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>85</xmin>
-			<ymin>255</ymin>
-			<xmax>155</xmax>
-			<ymax>331</ymax>
+			<xmin>458</xmin>
+			<ymin>413</ymin>
+			<xmax>650</xmax>
+			<ymax>720</ymax>
 		</bndbox>
 	</object>
 	<object>
 		<name>cone</name>
 		<pose>Unspecified</pose>
-		<truncated>0</truncated>
+		<truncated>1</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>82</xmin>
-			<ymin>326</ymin>
-			<xmax>167</xmax>
-			<ymax>428</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>cone</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>346</xmin>
-			<ymin>309</ymin>
-			<xmax>407</xmax>
-			<ymax>394</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>cone</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>363</xmin>
-			<ymin>284</ymin>
-			<xmax>411</xmax>
-			<ymax>355</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>cone</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>597</xmin>
-			<ymin>282</ymin>
-			<xmax>655</xmax>
-			<ymax>353</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>cone</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>626</xmin>
-			<ymin>248</ymin>
-			<xmax>687</xmax>
-			<ymax>316</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>cone</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>1009</xmin>
-			<ymin>267</ymin>
-			<xmax>1070</xmax>
-			<ymax>350</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>cone</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>1211</xmin>
-			<ymin>355</ymin>
-			<xmax>1277</xmax>
-			<ymax>445</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>cone</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>1172</xmin>
-			<ymin>404</ymin>
-			<xmax>1258</xmax>
-			<ymax>506</ymax>
-		</bndbox>
-	</object>
-	<object>
-		<name>cone</name>
-		<pose>Unspecified</pose>
-		<truncated>0</truncated>
-		<difficult>0</difficult>
-		<bndbox>
-			<xmin>865</xmin>
-			<ymin>472</ymin>
-			<xmax>960</xmax>
-			<ymax>589</ymax>
+			<xmin>300</xmin>
+			<ymin>405</ymin>
+			<xmax>492</xmax>
+			<ymax>720</ymax>
 		</bndbox>
 	</object>
 </annotation>

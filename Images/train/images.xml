@@ -1,13 +1,13 @@
 <annotation>
-	<folder>blue</folder>
-	<filename>images.jpg</filename>
-	<path>C:\Users\Joe\Desktop\downlaoded_cone_images\blue\images.jpg</path>
+	<folder>cones</folder>
+	<filename>images.jpeg</filename>
+	<path>/Users/pearse/Pictures/cones/images.jpeg</path>
 	<source>
 		<database>Unknown</database>
 	</source>
 	<size>
-		<width>259</width>
-		<height>194</height>
+		<width>334</width>
+		<height>151</height>
 		<depth>3</depth>
 	</size>
 	<segmented>0</segmented>
@@ -17,9 +17,9 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>11</xmin>
-			<ymin>60</ymin>
-			<xmax>58</xmax>
+			<xmin>9</xmin>
+			<ymin>47</ymin>
+			<xmax>69</xmax>
 			<ymax>145</ymax>
 		</bndbox>
 	</object>
@@ -29,10 +29,58 @@
 		<truncated>0</truncated>
 		<difficult>0</difficult>
 		<bndbox>
-			<xmin>213</xmin>
-			<ymin>56</ymin>
-			<xmax>256</xmax>
-			<ymax>129</ymax>
+			<xmin>146</xmin>
+			<ymin>36</ymin>
+			<xmax>187</xmax>
+			<ymax>103</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>218</xmin>
+			<ymin>32</ymin>
+			<xmax>247</xmax>
+			<ymax>83</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>263</xmin>
+			<ymin>31</ymin>
+			<xmax>287</xmax>
+			<ymax>71</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>292</xmin>
+			<ymin>31</ymin>
+			<xmax>312</xmax>
+			<ymax>66</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>314</xmin>
+			<ymin>34</ymin>
+			<xmax>331</xmax>
+			<ymax>62</ymax>
 		</bndbox>
 	</object>
 </annotation>
