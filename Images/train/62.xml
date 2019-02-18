@@ -1,0 +1,38 @@
+<annotation>
+	<folder>Victor</folder>
+	<filename>62.jpg</filename>
+	<path>D:\University Work\Year 4\GBDP\Computer Vision\tf\Images\train\Victor\62.jpg</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>478</width>
+		<height>359</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>43</xmin>
+			<ymin>153</ymin>
+			<xmax>135</xmax>
+			<ymax>256</ymax>
+		</bndbox>
+	</object>
+	<object>
+		<name>cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>266</xmin>
+			<ymin>185</ymin>
+			<xmax>334</xmax>
+			<ymax>297</ymax>
+		</bndbox>
+	</object>
+</annotation>
