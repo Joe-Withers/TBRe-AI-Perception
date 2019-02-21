@@ -13,6 +13,8 @@ For each object_dict, extract its bounding box measurements. Denormalize them, t
 For extracting the patches of the images inside the bounding box look and using slicing with numpy (https://www.tutorialspoint.com/numpy/numpy_indexing_and_slicing.htm ). 
 For matching these patches a useful resource is (\<soon to come\>).
 
+Just using SSD, to calculate the error between patches will not be suffient for the inputs this will get. For example the object detection may draw a bounding box of size 100x100 around cone1 in image1 and a box of size 120x100 around cone1 in image2. __Do NOT resize the images__ (or at least if you are going to don't do it by much); say for example, you where comparing cone1 in image1 which is really close to the camera with a bounding box of size 170x150 against cone2 in image2 which is very far away from the comera with bounding box of size 10x12, if you resize the images to match and perform SSD then the error may be respectably low, when in reality the error should be very high. Instead of resizing consider a sliding window approach (but again this is to run in real time so be a bit clever about how you do it).
+
 ### finally 
 Test the match_objects function using the function in generate_matching_input.py.
 You can do this by adding the code below at the bottom of the matching.py module.
