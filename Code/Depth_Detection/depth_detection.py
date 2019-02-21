@@ -6,6 +6,6 @@ class Object_Depth_Detector():
     def __str__(self):
         return 'class/object description'
 
-    def get_depth(self, object_dict, depth_maps):
-        """ Input location (bounding box) and depth map. Returns objects depth"""
+    def get_depth(self, object_dicts, depth_maps):
+        """ Input locations (bounding boxes) and depth map. Returns objects depths"""
         return None
