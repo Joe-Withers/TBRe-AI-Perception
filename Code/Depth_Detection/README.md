@@ -14,7 +14,7 @@ For each object_dict, extract its bounding box measurements. Denormalize them, t
 ### finally 
 Test the get_depth function using the function in generate_depth_input.py.
 You can do this by adding the code below at the bottom of the depth_detection.py module.
-if __name__ == "__main__":
-	<code to test the function>
+if \_\_name\_\_ == "\_\_main\_\_":
+	\<code to test the function\>
 
 	
