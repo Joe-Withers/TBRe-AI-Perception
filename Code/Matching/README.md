@@ -2,7 +2,8 @@
 
 ### Implement a function in the module 'generate_matching_input.py' 
 This should include a function that generates the input information for the match_objects function in the Matching class. Note this is for testing purposes so you can just hard code some example object_dicts for some images for testing purposes. Just think about what it is that you are trying to test.
-*Note: refer to the readme in 'code/' folder for more detail on the format of output_dict returned from the object detector.
+
+*Note: refer to the readme in 'code/' folder for more detail on the format of output_dict returned from the object detector.*
 
 ### Implement the match_objects function.
 
