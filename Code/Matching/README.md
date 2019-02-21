@@ -10,10 +10,10 @@ This function will be passed a two object_dicts for each stereo image (i.e. the 
 For each object_dict, extract its bounding box measurements. Denormalize them, to give you the top left and bottom right coordinates. Then you can simply extract the section from the image (respectively) corresponding to the area inside the bounding box. This will give you a list of patches for each image. Next compare the patches between the two images using SSD and use an appropriate matching technique. Bear in mind this code will be running real time so try to avoid loops as much as you can.
 
 For extracting the patches of the images inside the bounding box look and using slicing with numpy (https://www.tutorialspoint.com/numpy/numpy_indexing_and_slicing.htm ). 
-For matching these patches a useful resource is (<soon to come>).
+For matching these patches a useful resource is (\<soon to come\>).
 
 ### finally 
 Test the match_objects function using the function in generate_matching_input.py.
 You can do this by adding the code below at the bottom of the matching.py module.
-if __name__ == "__main__":
-	<code to test the function>
+if \_\_name\_\_ == "\_\_main\_\_":
+	\<code to test the function\>
