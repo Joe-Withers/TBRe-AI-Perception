@@ -8,19 +8,16 @@ class Object_Depth_Detector():
         return 'class/object description'
 
     def calculate_depth(self, depth_slice):
-        """Calculates the trimmed mean depth within a given slice (excluding outliers that are at a distance of more
-        than two standard deviations from the mean"""
+        """Calculates the trimmed minimum (closest distance within 2 standard deviations of the mean) depth within a
+        given slice."""
         depths = depth_slice.flatten()
         mean = np.mean(depths)
         standard_deviation = np.std(depths)
         upper_bound = mean + 2 * standard_deviation
         lower_bound = mean - 2 * standard_deviation
-        trimmed_depths = np.empty(np.size(depths))
-        for i in range(np.size(depths)):
-            if (depths[i] < upper_bound) and (depths[i] > lower_bound):
-                trimmed_depths[i] = depths[i]
-        trimmed_mean = np.mean(trimmed_depths)
-        return trimmed_mean
+        trimmed_depths = np.where(np.logical_and(depths > lower_bound, depths < upper_bound))
+        trimmed_minimum = np.min(trimmed_depths)
+        return trimmed_minimum
 
     def get_depth(self, object_dicts, depth_maps):
         """ Input locations (bounding boxes) and depth map. Returns objects depths"""
