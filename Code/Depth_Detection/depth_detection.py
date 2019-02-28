@@ -30,7 +30,4 @@ class Object_Depth_Detector():
             bottom_right = np.array([box[2], box[3]])
             depth_slice = depth_maps.slice(top_left, bottom_right)
             box_depths[i] = self.calculate_depth(depth_slice)
-        boxes.append(box_depths, axis=1)
-        # This array has n columns and two rows. The first row contains the bounding boxes [x,y,x,y] and the second row
-        # contains the calculated depths of the objects bounded by those boxes.
-        return None
+        return box_depths
