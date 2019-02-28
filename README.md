@@ -1,15 +1,15 @@
 # TODO
 ## Peripheral communication
-* write function to use the ZED sdk for reading the input 
+* write function to use the ZED sdk for reading the input.                                              \[pending\]
 ## Object detection
-* wait for better training data
-* consider writing a canny edge cone detector as a back-up.
+* wait for better training data                                                                         \[pending\]
+* consider writing a canny edge cone detector as a back-up.                                             \[pending\]
 ## Depth detection
-* function for detecting depth. \[done\]
-* function for generating ground truth inputs to test the depth detection function. \[pending\]
+* function for detecting depth.                                                                         \[done\]
+* function for generating ground truth inputs to test the depth detection function.                     \[pending\]
 ## 3D projection
-* function for projecting 2D image coordinates to 3D coordinates using the depth from depth detection. \[pending\]
-* function for generating ground truths for testing this. \[pending\]
+* function for projecting 2D image coordinates to 3D coordinates using the depth from depth detection.  \[pending\]
+* function for generating ground truths for testing this.                                               \[pending\]
 
 # TBRe-AI-Perception
 Uses stereo cameras to perceive relative cone locations.
