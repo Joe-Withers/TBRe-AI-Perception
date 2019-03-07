@@ -26,8 +26,8 @@ class Object_Depth_Detector():
         box_depths = np.empty(n)
         for i in range(n):
             box = boxes[i]
-            top_left = np.array([box[0], box[1]])
-            bottom_right = np.array([box[2], box[3]])
+            top_left = np.array([box[0] * np.size(depth_maps, 1), box[1] * np.size(depth_maps, 0)])
+            bottom_right = np.array([box[2] * np.size(depth_maps, 1), box[3] * np.size(depth_maps, 0)])
             depth_slice = depth_maps.slice(top_left, bottom_right)
             box_depths[i] = self.calculate_depth(depth_slice)
         return box_depths
