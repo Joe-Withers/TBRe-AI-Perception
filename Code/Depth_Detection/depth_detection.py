@@ -2,7 +2,7 @@ import numpy as np
 
 class Object_Depth_Detector():
     def __init__(self):
-        print('initilise')
+        print('initialise')
 
     def __str__(self):
         return 'class/object description'
@@ -25,9 +25,11 @@ class Object_Depth_Detector():
         boxes = object_dicts["detection_boxes"]
         box_depths = np.empty(n)
         for i in range(n):
+            print(boxes[i])
+        for i in range(n):
             box = boxes[i]
             top_left = np.array([box[0] * np.size(depth_maps, 1), box[1] * np.size(depth_maps, 0)])
             bottom_right = np.array([box[2] * np.size(depth_maps, 1), box[3] * np.size(depth_maps, 0)])
             depth_slice = depth_maps.slice(top_left, bottom_right)
             box_depths[i] = self.calculate_depth(depth_slice)
-        return box_depths
+        #return box_depths
