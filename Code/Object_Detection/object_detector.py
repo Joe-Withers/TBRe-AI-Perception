@@ -126,7 +126,8 @@ class Object_Detector():
                     instance_masks=output_dict.get('detection_masks'),
                     use_normalized_coordinates=True,
                     line_thickness=8)
-                cv2.imshow('image '+str(i),cv2.cvtColor(image[i,:,:,:], cv2.COLOR_BGR2RGB))
+                # cv2.cvtColor(image[i,:,:,:]), cv2.COLOR_BGR2RGB)
+                cv2.imshow('image '+str(i),image[i,:,:,:])
                 cv2.waitKey(0)
                 cv2.destroyAllWindows()
             list_of_output_dict.append(output_dict)

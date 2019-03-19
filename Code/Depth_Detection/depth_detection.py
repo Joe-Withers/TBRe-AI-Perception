@@ -15,21 +15,23 @@ class Object_Depth_Detector():
         standard_deviation = np.std(depths)
         upper_bound = mean + 2 * standard_deviation
         lower_bound = mean - 2 * standard_deviation
-        trimmed_depths = np.where(np.logical_and(depths > lower_bound, depths < upper_bound))
+        trimmed_depths = depths[np.where(np.logical_and(depths > lower_bound, depths < upper_bound))]
         trimmed_minimum = np.min(trimmed_depths)
         return trimmed_minimum
 
-    def get_depth(self, object_dicts, depth_maps):
-        """ Input locations (bounding boxes) and depth map. Returns objects depths"""
-        n = object_dicts["num_detections"]
-        boxes = object_dicts["detection_boxes"]
-        box_depths = np.empty(n)
-        for i in range(n):
-            print(boxes[i])
-        for i in range(n):
-            box = boxes[i]
-            top_left = np.array([box[0] * np.size(depth_maps, 1), box[1] * np.size(depth_maps, 0)])
-            bottom_right = np.array([box[2] * np.size(depth_maps, 1), box[3] * np.size(depth_maps, 0)])
-            depth_slice = depth_maps.slice(top_left, bottom_right)
-            box_depths[i] = self.calculate_depth(depth_slice)
-        #return box_depths
+    def get_depth(self, object_dict, depth_map):
+        """ Input locations (bounding boxes) and depth map. Returns objects depths. Currently implemented for a single image."""
+        n = object_dict["num_detections"]
+        boxes = object_dict["detection_boxes"]
+        # print(boxes)
+        depths = []#not efficient using append here - change
+        for box in boxes:
+            [im_height, im_width] = depth_map.shape
+            [ymin, xmin, ymax, xmax] = box
+            [left, right, top, bottom] = np.array([xmin * im_width, xmax * im_width, ymin * im_height, ymax * im_height]).astype(int)
+            if(all([right>left, bottom>top])):
+                depth = self.calculate_depth(depth_map[top:bottom,left:right])
+                print(depth)
+                depths.append(depth)
+        print(depths)
+        return depths
