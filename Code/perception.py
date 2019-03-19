@@ -3,6 +3,7 @@ import time
 from Peripheral_Communication.stereo_camera import Stereo_Camera, Stereo_Camera_test
 from Object_Detection.object_detector import Object_Detector
 from Depth_Detection.depth_detection import Object_Depth_Detector
+from Projection.projection import Projection
 import os
 import numpy as np
 
@@ -82,16 +83,24 @@ class Perception(Thread):
                 self.stereo_cam1.stop_thread()#stop loop for reading camera frames
                 break
 
+def format_output_dicts(output_dicts):
+    images_boxes = [output_dict["detection_boxes"] for output_dict in output_dicts]
+    return images_boxes
+
 class Perception_test():
     """ use this class to test the various modules together """
     def __init__(self, model_name, frozen_graph_name):
         self.cone_detector = Object_Detector(model_name, frozen_graph_name, labels, debug_mode = True)
         self.depth_detector = Object_Depth_Detector()
+        self.projector = Projection()
 
-    def run_image(self, image, depth_map):
-        images = np.expand_dims(np.array(image), axis=0)
+    def run_images(self, images, depth_maps):
+
         output_dicts = self.cone_detector.detect_objects(images)
-        depths = self.depth_detector.get_depth(output_dicts[0], depth_map)
+        images_boxes = format_output_dicts(output_dicts)
+        depths = [self.depth_detector.get_depth(boxes, depth_map) for boxes, depth_map in zip(images_boxes, depth_maps)]
+        relative_coordinates = [self.projector.project_to_3d(boxes, depth, image.shape) for boxes, depth, image in zip(images_boxes, depths, images)]
+        print('relative_coordinates:',relative_coordinates)
 
 # if __name__ == "__main__":
 #     p = Perception(0,'main_percepter')
@@ -109,4 +118,6 @@ if __name__ == "__main__":
     s = Stereo_Camera_test()
 
     image, depth_map = s.generate_image_and_depth()
-    p.run_image(image, depth_map)
+    images = np.expand_dims(np.array(image), axis=0)
+    depth_maps = np.expand_dims(np.array(depth_map), axis=0)
+    p.run_images(images, depth_maps)

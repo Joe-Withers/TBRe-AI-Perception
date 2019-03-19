@@ -19,11 +19,8 @@ class Object_Depth_Detector():
         trimmed_minimum = np.min(trimmed_depths)
         return trimmed_minimum
 
-    def get_depth(self, object_dict, depth_map):
+    def get_depth(self, boxes, depth_map):
         """ Input locations (bounding boxes) and depth map. Returns objects depths. Currently implemented for a single image."""
-        n = object_dict["num_detections"]
-        boxes = object_dict["detection_boxes"]
-        # print(boxes)
         depths = []#not efficient using append here - change
         for box in boxes:
             [im_height, im_width] = depth_map.shape
