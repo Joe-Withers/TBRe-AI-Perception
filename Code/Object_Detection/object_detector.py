@@ -128,8 +128,8 @@ class Object_Detector():
                     line_thickness=8)
                 # cv2.cvtColor(image[i,:,:,:]), cv2.COLOR_BGR2RGB)
                 cv2.imshow('image '+str(i),image[i,:,:,:])
-                cv2.waitKey(0)
-                cv2.destroyAllWindows()
+                cv2.waitKey(10)
+                # cv2.destroyAllWindows()
             list_of_output_dict.append(output_dict)
         return list_of_output_dict
 

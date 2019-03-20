@@ -4,7 +4,7 @@ from Peripheral_Communication.stereo_camera import Stereo_Camera, Stereo_Camera_
 from Object_Detection.object_detector import Object_Detector
 from Depth_Detection.depth_detection import Object_Depth_Detector
 from Projection.projection import Projection
-import os
+import os, sys
 import numpy as np
 
 class Perception(Thread):
@@ -87,6 +87,8 @@ def format_output_dicts(output_dicts):
     images_boxes = [output_dict["detection_boxes"] for output_dict in output_dicts]
     return images_boxes
 
+import cv2
+
 class Perception_test():
     """ use this class to test the various modules together """
     def __init__(self, model_name, frozen_graph_name):
@@ -95,7 +97,6 @@ class Perception_test():
         self.projector = Projection()
 
     def run_images(self, images, depth_maps):
-
         output_dicts = self.cone_detector.detect_objects(images)
         images_boxes = format_output_dicts(output_dicts)
         depths = [self.depth_detector.get_depth(boxes, depth_map) for boxes, depth_map in zip(images_boxes, depth_maps)]
@@ -117,7 +118,15 @@ if __name__ == "__main__":
     p = Perception_test(model_name, frozen_graph_name)
     s = Stereo_Camera_test()
 
-    image, depth_map = s.generate_image_and_depth()
-    images = np.expand_dims(np.array(image), axis=0)
-    depth_maps = np.expand_dims(np.array(depth_map), axis=0)
-    p.run_images(images, depth_maps)
+    for i in range(0,1000):
+        # image, depth_map = s.generate_image_and_depth()
+        image, depth_map = s.get_image_and_depth()
+        # cv2.imshow("Image", image)
+        # cv2.imshow("Depth", depth_map)
+        # cv2.waitKey(0)
+        images = np.expand_dims(np.array(image), axis=0)
+        depth_maps = np.expand_dims(np.array(depth_map), axis=0)
+        p.run_images(images, depth_maps)
+        sys.stdout.flush()
+
+    s.close_cam()

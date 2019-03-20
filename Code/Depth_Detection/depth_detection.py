@@ -11,6 +11,7 @@ class Object_Depth_Detector():
         """Calculates the trimmed minimum (closest distance within 2 standard deviations of the mean) depth within a
         given slice."""
         depths = depth_slice.flatten()
+        depths = depths[depths>0]
         mean = np.mean(depths)
         standard_deviation = np.std(depths)
         upper_bound = mean + 2 * standard_deviation
