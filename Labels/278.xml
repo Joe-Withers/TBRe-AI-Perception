@@ -1,0 +1,26 @@
+<annotation>
+	<folder>TBRe_cones</folder>
+	<filename>278.png</filename>
+	<path>/Users/pearse/Downloads/TBRe_cones/278.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>720</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>blue-cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>645</xmin>
+			<ymin>216</ymin>
+			<xmax>746</xmax>
+			<ymax>358</ymax>
+		</bndbox>
+	</object>
+</annotation>
