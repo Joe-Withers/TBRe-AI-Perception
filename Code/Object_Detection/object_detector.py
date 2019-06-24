@@ -47,7 +47,7 @@ class Object_Detector():
             tf.import_graph_def(od_graph_def, name='')
 
         self.category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS, use_display_name=True)
-        self.config = tf.ConfigProto(device_count = {'GPU': 0})
+        self.config = tf.ConfigProto(device_count = {'GPU': 1})
         self.sess = tf.Session(config = self.config, graph = self.detection_graph)
 
     #object description

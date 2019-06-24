@@ -1,6 +1,6 @@
 from threading import Thread, Lock
 import time
-from Peripheral_Communication.stereo_camera import Stereo_Camera, Stereo_Camera_test
+from Peripheral_Communication.stereo_camera import Stereo_Camera
 from Object_Detection.object_detector import Object_Detector
 from Depth_Detection.depth_detection import Object_Depth_Detector
 from Projection.projection import Projection
@@ -23,12 +23,13 @@ class Perception(Thread):
 
         # set up stereo camera
         self.stereo_cam1 = Stereo_Camera()
+        K = self.stereo_cam1.get_K()
         # #set up object detector
         self.cone_detector = Object_Detector(model_name, frozen_graph_name, labels, debug_mode = True)
         #set up depth detector
         self.depth_detector = Object_Depth_Detector()
         #set up projector
-        self.projector = Projection()
+        self.projector = Projection(K)
 
     def __str__(self):
         return 'class description'
@@ -55,6 +56,7 @@ class Perception(Thread):
 
             # step 3: find depth of cones
             images_boxes = format_output_dicts(output_dicts)
+            print('images_boxes',images_boxes)
             depths = [self.depth_detector.get_depth(boxes, depth_map) for boxes, depth_map in zip(images_boxes, depth_maps)]
 
             # step 4: triangulate cones
@@ -69,24 +71,23 @@ class Perception(Thread):
                 break
 
 def format_output_dicts(output_dicts):
-    images_boxes = [output_dict["detection_boxes"] for output_dict in output_dicts]
+    images_boxes = [output_dict["detection_boxes"][output_dict["detection_scores"]>.5] for output_dict in output_dicts]
     return images_boxes
 
-import cv2
-
-class Perception_test():
-    """ use this class to test the various modules together """
-    def __init__(self, model_name, frozen_graph_name):
-        self.cone_detector = Object_Detector(model_name, frozen_graph_name, labels, debug_mode = True)
-        self.depth_detector = Object_Depth_Detector()
-        self.projector = Projection()
-
-    def run_images(self, images, depth_maps):
-        output_dicts = self.cone_detector.detect_objects(images)
-        images_boxes = format_output_dicts(output_dicts)
-        depths = [self.depth_detector.get_depth(boxes, depth_map) for boxes, depth_map in zip(images_boxes, depth_maps)]
-        relative_coordinates = [self.projector.project_to_3d(boxes, depth, image.shape) for boxes, depth, image in zip(images_boxes, depths, images)]
-        print('relative_coordinates:',relative_coordinates)
+#
+# class Perception_test():
+#     """ use this class to test the various modules together """
+#     def __init__(self, model_name, frozen_graph_name):
+#         self.cone_detector = Object_Detector(model_name, frozen_graph_name, labels, debug_mode = True)
+#         self.depth_detector = Object_Depth_Detector()
+#         self.projector = Projection()
+#
+#     def run_images(self, images, depth_maps):
+#         output_dicts = self.cone_detector.detect_objects(images)
+#         images_boxes = format_output_dicts(output_dicts)
+#         depths = [self.depth_detector.get_depth(boxes, depth_map) for boxes, depth_map in zip(images_boxes, depth_maps)]
+#         relative_coordinates = [self.projector.project_to_3d(boxes, depth, image.shape) for boxes, depth, image in zip(images_boxes, depths, images)]
+#         print('relative_coordinates:',relative_coordinates)
 
 if __name__ == "__main__":
     model_name = './Object_Detection/cones_graph'
