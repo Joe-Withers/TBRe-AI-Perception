@@ -62,6 +62,7 @@ class Object_Detector():
         [n_ims,_,_,_] = image.shape
         list_of_output_dict = []
         for i in range(0,n_ims):
+            image[i,:,:,:] = cv2.cvtColor(image[i,:,:,:], cv2.COLOR_BGR2RGB)
             # Actual detection.
             start_t_inference = time.time()
             output_dict = self._run_inference_for_single_image(image[i,:,:,:])
@@ -80,9 +81,9 @@ class Object_Detector():
                     instance_masks=output_dict.get('detection_masks'),
                     use_normalized_coordinates=True,
                     line_thickness=8)
-                # cv2.cvtColor(image[i,:,:,:]), cv2.COLOR_BGR2RGB)
+                image[i,:,:,:] = cv2.cvtColor(image[i,:,:,:], cv2.COLOR_BGR2RGB)
                 cv2.imshow('image '+str(i),image[i,:,:,:])
-                cv2.waitKey(10)
+                cv2.waitKey(1)
                 # cv2.destroyAllWindows()
             list_of_output_dict.append(output_dict)
         return list_of_output_dict
@@ -139,7 +140,8 @@ class Object_Detector():
 
 if __name__ == "__main__":
     model_name = './cones_graph'
-    frozen_graph_name = '/frozen_inference_graph.pb'
+    #SSD_mobilenet(20257)    dukecone    faster_RCNN_resnet101(330)
+    frozen_graph_name = '/faster_RCNN_resnet101(330)/frozen_inference_graph.pb'
     labels = os.path.join('./data', 'object-detection.pbtxt')
     cone_detector = Object_Detector(model_name, frozen_graph_name, labels, debug_mode = True)
 

@@ -1,4 +1,12 @@
 item {
   id: 1
-  name: 'cone'
+  name: 'blue-cone'
+}
+item {
+  id: 2
+  name: 'yellow-cone'
+}
+item {
+  id: 3
+  name: 'orange-cone'
 }

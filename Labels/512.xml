@@ -1,0 +1,26 @@
+<annotation>
+	<folder>saved_ZED_images</folder>
+	<filename>512.png</filename>
+	<path>D:\Joe\Documents\University\TBReAI\saved_ZED_images\512.png</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>1280</width>
+		<height>720</height>
+		<depth>3</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>orange-cone</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>697</xmin>
+			<ymin>484</ymin>
+			<xmax>808</xmax>
+			<ymax>640</ymax>
+		</bndbox>
+	</object>
+</annotation>
