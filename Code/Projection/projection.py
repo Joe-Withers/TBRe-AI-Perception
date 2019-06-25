@@ -19,11 +19,10 @@ class Projection():
             return None
         else:
             [ymin, xmin, ymax, xmax] = box
-            # center_offset = [((ymin+ymax)/2)-0.5, ((xmin+xmax)/2)-0.5]
             box_center_relative = [((ymin+ymax)/2), ((xmin+xmax)/2)]
             box_center_pixels = image_size*box_center_relative
             pixel_coordinates = [box_center_pixels[0], box_center_pixels[1], 1]#homogeneous 2D pixel coordinate relative to the center of the image
-            camera_coordinates = np.matmul(self.K, pixel_coordinates)#use the camera intrinsic matrix (i.e. the focal length) to convert to camera coordinates
+            camera_coordinates = np.matmul(np.linalg.inv(self.K), pixel_coordinates)#use the camera intrinsic matrix (i.e. the focal length) to convert to camera coordinates
             relative_world_coordinates = (camera_coordinates*depth)/np.sum(camera_coordinates**2)#use some simple geometry to map out to world coordinates at correct depth
             # print(pixel_coordinates)
             # print(camera_coordinates)

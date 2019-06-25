@@ -6,6 +6,7 @@ from Depth_Detection.depth_detection import Object_Depth_Detector
 from Projection.projection import Projection
 import os, sys
 import numpy as np
+import cv2
 
 class Perception(Thread):
     """ main class for perception, to be called from 'mapping and localisation' to aquire
@@ -58,12 +59,15 @@ class Perception(Thread):
             images_boxes = format_output_dicts(output_dicts)
             print('images_boxes',images_boxes)
             depths = [self.depth_detector.get_depth(boxes, depth_map) for boxes, depth_map in zip(images_boxes, depth_maps)]
-
+            print('depths:',depths)
             # step 4: triangulate cones
             relative_coordinates = [self.projector.project_to_3d(boxes, depth, image.shape) for boxes, depth, image in zip(images_boxes, depths, images)]
             print('relative_coordinates:',relative_coordinates)
 
+            relative_coordinates2 = [self.stereo_cam1.get_3D_location(boxes) for boxes in images_boxes]
+            print('relative_coordinates2:',relative_coordinates2)
             #TODO: publish to topic on ROS
+            # cv2.waitKey(0)
 
             print(self.name)
             if self._exit_flag:
@@ -92,13 +96,13 @@ def format_output_dicts(output_dicts):
 if __name__ == "__main__":
     model_name = './Object_Detection/cones_graph'
     #SSD_mobilenet(20257)    dukecone    faster_RCNN_resnet101(330)
-    frozen_graph_name = '/faster_RCNN_resnet101(330)/frozen_inference_graph.pb'
+    frozen_graph_name = '/SSD_mobilenet(20257)/frozen_inference_graph.pb'
     labels = os.path.join('./Object_Detection/data', 'object-detection.pbtxt')
 
     p = Perception(0,'main_percepter',model_name, frozen_graph_name, labels)
     p.flag_lock.acquire()
     p.start()
-    time.sleep(50)
+    time.sleep(500)
     p.stop_thread()
     print('exited')
 

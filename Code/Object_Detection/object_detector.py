@@ -63,7 +63,7 @@ class Object_Detector():
         [n_ims,_,_,_] = image.shape
         list_of_output_dict = []
         for i in range(0,n_ims):
-            # image[i,:,:,:] = cv2.cvtColor(image[i,:,:,:], cv2.COLOR_BGR2RGB)
+            image[i,:,:,:] = cv2.cvtColor(image[i,:,:,:], cv2.COLOR_BGR2RGB)
             # Actual detection.
             start_t_inference = time.time()
             output_dict = self._run_inference_for_single_image(image[i,:,:,:])
@@ -83,7 +83,7 @@ class Object_Detector():
                     use_normalized_coordinates=True,
                     line_thickness=8)
                 image[i,:,:,:] = cv2.cvtColor(image[i,:,:,:], cv2.COLOR_BGR2RGB)
-                cv2.imshow('image '+str(i),image[i,:,:,:])
+                cv2.imshow('image '+str(i),cv2.resize(image[i,:,:,:],(800,600)))
                 cv2.waitKey(1)
                 # cv2.destroyAllWindows()
             list_of_output_dict.append(output_dict)

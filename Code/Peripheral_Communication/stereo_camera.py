@@ -48,7 +48,7 @@ class Stereo_Camera():
         image = sl.Mat()
         # depth_im = sl.Mat()
         depth = sl.Mat()
-        point_cloud = sl.Mat()
+        # point_cloud = sl.Mat()
         imc = []
         d = []
         while i < 1:
@@ -95,6 +95,17 @@ class Stereo_Camera():
         images = np.expand_dims(np.array(imc), axis=0)
         depth_maps = np.expand_dims(np.array(depth_data), axis=0)
         return images, depth_maps
+
+    def get_3D_location(self, boxes):
+        rel_coords = []
+        point_cloud = sl.Mat()
+        self.zed.retrieve_measure(point_cloud, sl.MEASURE.MEASURE_XYZRGBA)
+        for box in boxes:
+            [ymin, xmin, ymax, xmax] = box
+            y = (ymin+ymax)/2
+            x = (xmin+xmax)/2
+            err, point_cloud_value = point_cloud.get_value(x, y)
+            rel_coords.append(point_cloud_value)
 
     def __str__(self):
         return 'class/object description'
