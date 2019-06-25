@@ -1,4 +1,5 @@
 import tensorflow as tf
+from tensorflow.python.client import device_lib
 from distutils.version import StrictVersion
 import os
 import glob
@@ -47,7 +48,7 @@ class Object_Detector():
             tf.import_graph_def(od_graph_def, name='')
 
         self.category_index = label_map_util.create_category_index_from_labelmap(PATH_TO_LABELS, use_display_name=True)
-        self.config = tf.ConfigProto(device_count = {'GPU': 1})
+        self.config = tf.ConfigProto(device_count = {'GPU': 1}, log_device_placement=False)
         self.sess = tf.Session(config = self.config, graph = self.detection_graph)
 
     #object description
@@ -62,7 +63,7 @@ class Object_Detector():
         [n_ims,_,_,_] = image.shape
         list_of_output_dict = []
         for i in range(0,n_ims):
-            image[i,:,:,:] = cv2.cvtColor(image[i,:,:,:], cv2.COLOR_BGR2RGB)
+            # image[i,:,:,:] = cv2.cvtColor(image[i,:,:,:], cv2.COLOR_BGR2RGB)
             # Actual detection.
             start_t_inference = time.time()
             output_dict = self._run_inference_for_single_image(image[i,:,:,:])
@@ -89,10 +90,9 @@ class Object_Detector():
         return list_of_output_dict
 
     def _run_inference_for_single_image(self, image):
-        graph = self.detection_graph
         with self.detection_graph.as_default():
             # with graph.as_default():
-            # with tf.Session(graph = graph) as sess:
+            # with tf.Session(config = tf.ConfigProto(device_count = {'GPU': 0})) as sess:
             # with self.sess as sess:
             # Get handles to input and output tensors
             ops = tf.get_default_graph().get_operations()
@@ -137,17 +137,34 @@ class Object_Detector():
                 output_dict['detection_masks'] = output_dict['detection_masks'][0]
         return output_dict
 
+def get_available_gpus():
+    local_device_protos = device_lib.list_local_devices()
+    print(local_device_protos)
+    return [x.name for x in local_device_protos if x.device_type == 'GPU']
 
 if __name__ == "__main__":
     model_name = './cones_graph'
     #SSD_mobilenet(20257)    dukecone    faster_RCNN_resnet101(330)
-    frozen_graph_name = '/faster_RCNN_resnet101(330)/frozen_inference_graph.pb'
+    frozen_graph_name = '/SSD_mobilenet(20257)/frozen_inference_graph.pb'
     labels = os.path.join('./data', 'object-detection.pbtxt')
     cone_detector = Object_Detector(model_name, frozen_graph_name, labels, debug_mode = True)
 
     PATH_TO_TEST_IMAGES_DIR = '../../images/test'
     TEST_IMAGE_PATHS = glob.glob(PATH_TO_TEST_IMAGES_DIR+'/*.jpg')
 
+    #*****temp*****
+    # PATH_TO_FROZEN_GRAPH = model_name + frozen_graph_name
+    # detection_graph = tf.Graph()
+    # with detection_graph.as_default():
+    #   od_graph_def = tf.GraphDef()
+    #   with tf.gfile.GFile(PATH_TO_FROZEN_GRAPH, 'rb') as fid:
+    #     serialized_graph = fid.read()
+    #     od_graph_def.ParseFromString(serialized_graph)
+    #     tf.import_graph_def(od_graph_def, name='')
+    #**********
+
+    max_itr = 10
+    i=0
     for image_path in TEST_IMAGE_PATHS:
         image = Image.open(image_path)
         # the array based representation of the image will be used later in order to prepare the
@@ -156,3 +173,7 @@ if __name__ == "__main__":
         # Expand dimensions since the model expects images to have shape: [1, None, None, 3]
         image_np_expanded = np.expand_dims(image_np, axis=0)
         cone_detector.detect_objects(image_np_expanded)
+        i+=1
+        if i>=max_itr:
+            break
+    get_available_gpus()
